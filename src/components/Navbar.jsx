@@ -23,6 +23,7 @@ export default function Navbar() {
           <NavLink to="/learn" className={linkClass}>Learn</NavLink>
           <NavLink to="/practice" className={linkClass}>Practice</NavLink>
           <NavLink to="/quiz" className={linkClass}>Check</NavLink>
+          <NavLink to="/complaint" className={linkClass}>Complaint Box</NavLink>
         </nav>
       </div>
     </header>

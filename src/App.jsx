@@ -8,6 +8,7 @@ import Quiz from './components/Quiz'
 import Feedback from './components/Feedback'
 import Badge from './components/Badge'
 import Summary from './components/Summary'
+import ComplaintBox from './components/ComplaintBox'
 
 function Container({ children }) {
   return (
@@ -33,7 +34,7 @@ export default function App() {
                 <section className="grid gap-4 md:grid-cols-2">
                   <div className="rounded-2xl bg-white/80 p-5 shadow">
                     <h2 className="text-xl font-extrabold text-slate-800">Why SMART Sharing Matters</h2>
-                    <p className="mt-2 text-slate-700">Sharing online can be exciting! The SMART checklist helps you protect private info, be kind, choose the right audience, avoid risk, and post things youll be proud of later.</p>
+                    <p className="mt-2 text-slate-700">Sharing online can be exciting! The SMART checklist helps you protect private info, be kind, choose the right audience, avoid risk, and post things you\u0019ll be proud of later.</p>
                   </div>
                   <div className="rounded-2xl bg-white/80 p-5 shadow">
                     <h2 className="text-xl font-extrabold text-slate-800">Meet Your Guide</h2>
@@ -49,6 +50,7 @@ export default function App() {
           <Route path="/feedback" element={<Feedback />} />
           <Route path="/badge" element={<Badge />} />
           <Route path="/summary" element={<Summary />} />
+          <Route path="/complaint" element={<ComplaintBox />} />
         </Routes>
       </Container>
     </div>
