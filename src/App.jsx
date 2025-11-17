@@ -1,28 +1,56 @@
-import { useState } from 'react'
+import React from 'react'
+import { Routes, Route, useLocation } from 'react-router-dom'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import Learn from './components/Learn'
+import Practice from './components/Practice'
+import Quiz from './components/Quiz'
+import Feedback from './components/Feedback'
+import Badge from './components/Badge'
+import Summary from './components/Summary'
 
-function App() {
-  const [count, setCount] = useState(0)
-
+function Container({ children }) {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-purple-50 to-blue-50 flex items-center justify-center">
-      <div className="bg-white p-8 rounded-lg shadow-lg">
-        <h1 className="text-3xl font-bold text-gray-800 mb-4">
-          Vibe Coding Platform
-        </h1>
-        <p className="text-gray-600 mb-6">
-          Your AI-powered development environment
-        </p>
-        <div className="text-center">
-          <button
-            onClick={() => setCount(count + 1)}
-            className="bg-blue-500 hover:bg-blue-600 text-white font-semibold py-2 px-4 rounded"
-          >
-            Count is {count}
-          </button>
-        </div>
-      </div>
+    <div className="mx-auto max-w-6xl px-4 py-6">
+      {children}
     </div>
   )
 }
 
-export default App
+export default function App() {
+  const location = useLocation()
+
+  return (
+    <div className="min-h-screen bg-gradient-to-br from-orange-50 via-rose-50 to-sky-50">
+      <Navbar />
+      <Container>
+        <Routes location={location}>
+          <Route
+            path="/"
+            element={
+              <div className="space-y-6">
+                <Hero />
+                <section className="grid gap-4 md:grid-cols-2">
+                  <div className="rounded-2xl bg-white/80 p-5 shadow">
+                    <h2 className="text-xl font-extrabold text-slate-800">Why SMART Sharing Matters</h2>
+                    <p className="mt-2 text-slate-700">Sharing online can be exciting! The SMART checklist helps you protect private info, be kind, choose the right audience, avoid risk, and post things youll be proud of later.</p>
+                  </div>
+                  <div className="rounded-2xl bg-white/80 p-5 shadow">
+                    <h2 className="text-xl font-extrabold text-slate-800">Meet Your Guide</h2>
+                    <p className="mt-2 text-slate-700">Pixel the mascot will cheer you on and offer friendly tips as you learn, practice, and check your understanding.</p>
+                  </div>
+                </section>
+              </div>
+            }
+          />
+          <Route path="/learn" element={<Learn />} />
+          <Route path="/practice" element={<Practice />} />
+          <Route path="/quiz" element={<Quiz />} />
+          <Route path="/feedback" element={<Feedback />} />
+          <Route path="/badge" element={<Badge />} />
+          <Route path="/summary" element={<Summary />} />
+        </Routes>
+      </Container>
+    </div>
+  )
+}
